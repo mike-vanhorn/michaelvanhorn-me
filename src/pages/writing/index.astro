@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
 import PostListItem from '../../components/PostListItem.astro';
 
 const posts = (await getCollection('writing'))
@@ -15,11 +14,10 @@ const description = 'Notes on AI, work, and the people the shift affects.';
 	<section class="writing-index" aria-labelledby="writing-title">
 		<div class="wide writing-inner">
 			<div class="intro">
-				<SectionHeading
-					kicker="Writing"
-					title="Notes on AI and the future of work."
-					id="writing-title"
-				/>
+				<div class="page-heading">
+					<p class="kicker">Writing</p>
+					<h1 id="writing-title">Notes on AI and the future of work.</h1>
+				</div>
 				<p>Short pieces on AI adoption, job stress, and keeping the human side in view.</p>
 			</div>
 
@@ -59,6 +57,16 @@ const description = 'Notes on AI, work, and the people the shift affects.';
 		display: grid;
 		gap: 1rem;
 		max-width: var(--maxw-prose);
+	}
+
+	.page-heading {
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	.page-heading h1 {
+		font-size: clamp(1.8rem, 5vw, 3rem);
+		letter-spacing: 0;
 	}
 
 	.intro p {

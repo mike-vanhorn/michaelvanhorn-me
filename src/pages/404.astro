@@ -1,0 +1,54 @@
+---
+import Button from '../components/Button.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const description = 'The page you were looking for could not be found.';
+---
+
+<PageLayout title="Page not found · Michael Van Horn" description={description}>
+	<section class="notfound" aria-labelledby="notfound-title">
+		<div class="prose notfound-inner">
+			<p class="kicker">Error 404</p>
+			<h1 id="notfound-title">This page wandered off.</h1>
+			<p class="lead">
+				The page you were looking for is not here. It may have moved, or the link may be
+				incomplete.
+			</p>
+			<div class="actions">
+				<Button href="/">Back to home</Button>
+				<Button href="/work" variant="ghost">See the work</Button>
+			</div>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.notfound {
+		background: var(--paper);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.notfound-inner {
+		display: grid;
+		gap: 1rem;
+		padding-block: clamp(4rem, 12vw, 8rem);
+	}
+
+	.notfound-inner h1 {
+		font-size: clamp(2.2rem, 6vw, 3.5rem);
+		letter-spacing: 0;
+	}
+
+	.lead {
+		color: var(--muted);
+		font-size: clamp(1.05rem, 2vw, 1.2rem);
+		max-width: var(--maxw-prose);
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 0.5rem;
+	}
+</style>

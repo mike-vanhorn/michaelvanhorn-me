@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
 
 const projects = (await getCollection('work'))
 	.filter((project) => !project.data.draft)
@@ -16,11 +15,10 @@ const description =
 	<section class="work-index" aria-labelledby="work-title">
 		<div class="wide work-inner">
 			<div class="intro">
-				<SectionHeading
-					kicker="Work"
-					title="Built projects at the edge of AI and work."
-					id="work-title"
-				/>
+				<div class="page-heading">
+					<p class="kicker">Work</p>
+					<h1 id="work-title">Built projects at the edge of AI and work.</h1>
+				</div>
 				<p>
 					A short collection of products and personal systems I have built to make AI and
 					knowledge work more useful.
@@ -58,6 +56,16 @@ const description =
 		display: grid;
 		gap: 1rem;
 		max-width: var(--maxw-prose);
+	}
+
+	.page-heading {
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	.page-heading h1 {
+		font-size: clamp(1.8rem, 5vw, 3rem);
+		letter-spacing: 0;
 	}
 
 	.intro p {
