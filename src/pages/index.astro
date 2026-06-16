@@ -10,7 +10,7 @@ const description =
 	'HRD researcher and builder. I study how AI adoption reshapes work and stress, and I build the tools and frameworks that make the shift humane.';
 ---
 
-<PageLayout title="Michael Van Horn — The human side of AI in the workplace" description={description}>
+<PageLayout title="Michael Van Horn · The human side of AI in the workplace" description={description}>
 	<section class="home-section hero">
 		<div class="wide section-inner hero-inner">
 			<p class="kicker">The human side of AI in the workplace</p>
@@ -35,7 +35,11 @@ const description =
 
 	<section class="home-section" aria-labelledby="featured-research-title">
 		<div class="wide section-inner research-inner">
-			<SectionHeading kicker="Featured · Research" title="AI Adoption & Job Stress" />
+			<SectionHeading
+				kicker="Featured · Research"
+				title="AI Adoption & Job Stress"
+				id="featured-research-title"
+			/>
 			<p>
 				My OLPD manuscript on how AI rollouts affect employee stress, read by leadership and made
 				required reading for the executive team. The center of how I think about this work.
@@ -48,16 +52,20 @@ const description =
 
 	<section class="home-section card-section" aria-labelledby="selected-work-title">
 		<div class="wide section-inner selected-work">
-			<SectionHeading kicker="Selected work" title="Built projects at the edge of AI and work." />
-			<div class="project-grid" id="selected-work-title">
+			<SectionHeading
+				kicker="Selected work"
+				title="Built projects at the edge of AI and work."
+				id="selected-work-title"
+			/>
+			<div class="project-grid">
 				<ProjectCard
 					name="Waaban"
-					blurb="AI trading terminal; HMM regime detection; co-founder & CEO."
+					blurb="AI-powered market-analysis platform. Co-founder & CEO."
 					href="/work/waaban"
 				/>
 				<ProjectCard
 					name="Woodhouse"
-					blurb="Self-built personal task manager replacing Asana; GitHub-backed Express proxy dashboard."
+					blurb="Self-built task manager replacing Asana. A local dashboard backed by a private GitHub repo via an Express proxy."
 					href="/work/woodhouse"
 				/>
 				<ProjectCard
@@ -74,8 +82,12 @@ const description =
 
 	<section class="home-section" aria-labelledby="writing-title">
 		<div class="wide section-inner writing-inner">
-			<SectionHeading kicker="Writing" title="Notes on AI and the future of work." />
-			<p id="writing-title">Coming soon.</p>
+			<SectionHeading
+				kicker="Writing"
+				title="Notes on AI and the future of work."
+				id="writing-title"
+			/>
+			<p>Coming soon.</p>
 			<div class="actions">
 				<Button href="/writing">Read the writing</Button>
 			</div>
@@ -84,8 +96,12 @@ const description =
 
 	<section class="home-section card-section" aria-labelledby="experience-title">
 		<div class="wide section-inner experience-inner">
-			<SectionHeading kicker="Experience" title="Where I am putting the work into practice." />
-			<div class="experience-list" id="experience-title">
+			<SectionHeading
+				kicker="Experience"
+				title="Where I am putting the work into practice."
+				id="experience-title"
+			/>
+			<div class="experience-list">
 				<ExperienceItem org="Meet Minneapolis" role="ECI" dates="2026–" />
 				<ExperienceItem org="Waaban" role="Co-founder & CEO" dates="2025–" />
 				<ExperienceItem org="EY" role="Incoming" dates="Fall 2026 · Ho Chi Minh City" />
@@ -122,8 +138,10 @@ const description =
 
 	h1 {
 		max-width: 900px;
-		font-size: clamp(3rem, 9vw, 6.6rem);
+		font-size: clamp(2.6rem, 9vw, 6.6rem);
 		letter-spacing: 0;
+		overflow-wrap: break-word;
+		hyphens: auto;
 	}
 
 	h1 em {

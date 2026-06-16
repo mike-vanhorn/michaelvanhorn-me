@@ -3,14 +3,15 @@ interface Props {
 	kicker: string;
 	title?: string;
 	accent?: 'clay' | 'green';
+	id?: string;
 }
 
-const { kicker, title, accent = 'clay' } = Astro.props;
+const { kicker, title, accent = 'clay', id } = Astro.props;
 ---
 
 <div class:list={['section-heading', accent]}>
 	<p class="kicker">{kicker}</p>
-	{title && <h2>{title}</h2>}
+	{title && <h2 id={id}>{title}</h2>}
 </div>
 
 <style>
