@@ -1,0 +1,111 @@
+---
+import { getCollection, render } from 'astro:content';
+import Button from '../../components/Button.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('work', ({ data }) => !data.draft);
+
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const pageTitle = `${project.data.title} · Work · Michael Van Horn`;
+const description = project.data.summary;
+---
+
+<PageLayout title={pageTitle} description={description}>
+	<article class="work-detail">
+		<header class="wide detail-header">
+			<a class="back-link" href="/work">Back to work</a>
+			<SectionHeading kicker="Work" title={project.data.title} />
+			<div class="project-meta" aria-label="Project details">
+				<span>{project.data.role}</span>
+				<span>{project.data.dates}</span>
+				{project.data.status && <span class="status">{project.data.status}</span>}
+			</div>
+			<p>{project.data.summary}</p>
+			{
+				project.data.links && project.data.links.length > 0 && (
+					<div class="link-row" aria-label="Project links">
+						{project.data.links.map((link) => (
+							<Button href={link.url} variant="ghost">
+								{link.label}
+							</Button>
+						))}
+					</div>
+				)
+			}
+		</header>
+
+		<div class="prose detail-body">
+			<Content />
+		</div>
+	</article>
+</PageLayout>
+
+<style>
+	.work-detail {
+		background: var(--paper);
+		border-bottom: 1px solid var(--line);
+		padding-block: var(--space-section);
+	}
+
+	.detail-header {
+		display: grid;
+		gap: 1rem;
+		margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+	}
+
+	.back-link {
+		width: fit-content;
+		color: var(--clay);
+		font-size: 0.95rem;
+		font-weight: 600;
+		text-decoration-thickness: 1px;
+	}
+
+	.detail-header p {
+		color: var(--muted);
+		font-size: clamp(1.05rem, 2vw, 1.2rem);
+	}
+
+	.project-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	.status {
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		color: var(--green);
+		font-weight: 600;
+		line-height: 1.2;
+		padding: 0.2rem 0.45rem;
+	}
+
+	.link-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 0.25rem;
+	}
+
+	.detail-body {
+		display: grid;
+		gap: 1.15rem;
+	}
+
+	.detail-body :global(p) {
+		color: var(--ink);
+		font-size: clamp(1.05rem, 2vw, 1.18rem);
+	}
+</style>
