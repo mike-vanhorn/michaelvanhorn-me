@@ -1,64 +1,186 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
 import Button from '../components/Button.astro';
 import ContactBand from '../components/ContactBand.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
-import PostListItem from '../components/PostListItem.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+
+const description =
+	'HRD researcher and builder. I study how AI adoption reshapes work and stress, and I build the tools and frameworks that make the shift humane.';
 ---
 
-<PageLayout
-	title="Michael Van Horn — The human side of AI in the workplace"
-	description="HRD researcher and builder focused on the human side of AI in the workplace."
->
-	<section class="phase-two-harness wide">
-		<p class="kicker">The human side of AI in the workplace</p>
-		<h1>Michael Van Horn</h1>
-		<p>
-			Temporary Phase 2 design-system harness for typography, navigation, buttons, footer, and the
-			contact band.
-		</p>
-		<div class="actions">
-			<Button href="/work">Read the work</Button>
-			<Button href="/contact" variant="ghost">Get in touch</Button>
+<PageLayout title="Michael Van Horn — The human side of AI in the workplace" description={description}>
+	<section class="home-section hero">
+		<div class="wide section-inner hero-inner">
+			<p class="kicker">The human side of AI in the workplace</p>
+			<h1>I help people and organizations work <em>well</em> with AI.</h1>
+			<p class="hero-copy">{description}</p>
+			<div class="actions" aria-label="Homepage actions">
+				<Button href="/work">Read the work</Button>
+				<Button href="/contact" variant="ghost">Get in touch</Button>
+			</div>
 		</div>
 	</section>
-	<section class="component-smoke" hidden aria-hidden="true">
-		<SectionHeading kicker="Component smoke" title="Shared components" accent="green" />
-		<ProjectCard name="Project" blurb="Component compile smoke." href="/work" />
-		<ExperienceItem org="Organization" role="Role" dates="2026" />
-		<PostListItem
-			title="Post"
-			date={new Date('2026-06-16T00:00:00')}
-			dek="Component compile smoke."
-			href="/writing"
-		/>
+
+	<section class="home-section card-section why-section" aria-labelledby="why-this-work-title">
+		<div class="wide section-inner">
+			<SectionHeading kicker="Why this work" accent="green" />
+			<p id="why-this-work-title" class="statement">
+				Anishinaabe, Red Lake Nation descendant. I came to AI through people: who it helps,
+				who it leaves out, and how organizations carry their communities through change.
+			</p>
+		</div>
 	</section>
+
+	<section class="home-section" aria-labelledby="featured-research-title">
+		<div class="wide section-inner research-inner">
+			<SectionHeading kicker="Featured · Research" title="AI Adoption & Job Stress" />
+			<p>
+				My OLPD manuscript on how AI rollouts affect employee stress, read by leadership and made
+				required reading for the executive team. The center of how I think about this work.
+			</p>
+			<div class="actions">
+				<Button href="/about" variant="ghost">Read the manuscript</Button>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-section card-section" aria-labelledby="selected-work-title">
+		<div class="wide section-inner selected-work">
+			<SectionHeading kicker="Selected work" title="Built projects at the edge of AI and work." />
+			<div class="project-grid" id="selected-work-title">
+				<ProjectCard
+					name="Waaban"
+					blurb="AI trading terminal; HMM regime detection; co-founder & CEO."
+					href="/work/waaban"
+				/>
+				<ProjectCard
+					name="Woodhouse"
+					blurb="Self-built personal task manager replacing Asana; GitHub-backed Express proxy dashboard."
+					href="/work/woodhouse"
+				/>
+				<ProjectCard
+					name="Obsidian AI"
+					blurb="Personal AI memory + agent system with knowledge files, hooks, skills, and a Townfolk agent layer."
+					href="/work/obsidian-ai"
+				/>
+			</div>
+			<div class="actions">
+				<Button href="/work">See all work</Button>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-section" aria-labelledby="writing-title">
+		<div class="wide section-inner writing-inner">
+			<SectionHeading kicker="Writing" title="Notes on AI and the future of work." />
+			<p id="writing-title">Coming soon.</p>
+			<div class="actions">
+				<Button href="/writing">Read the writing</Button>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-section card-section" aria-labelledby="experience-title">
+		<div class="wide section-inner experience-inner">
+			<SectionHeading kicker="Experience" title="Where I am putting the work into practice." />
+			<div class="experience-list" id="experience-title">
+				<ExperienceItem org="Meet Minneapolis" role="ECI" dates="2026–" />
+				<ExperienceItem org="Waaban" role="Co-founder & CEO" dates="2025–" />
+				<ExperienceItem org="EY" role="Incoming" dates="Fall 2026 · Ho Chi Minh City" />
+			</div>
+			<div class="actions">
+				<Button href="/resume.pdf" variant="ghost">Download résumé (PDF)</Button>
+			</div>
+		</div>
+	</section>
+
 	<ContactBand />
 </PageLayout>
 
 <style>
-	.phase-two-harness {
+	.home-section {
+		border-bottom: 1px solid var(--line);
+		background: var(--paper);
+	}
+
+	.card-section {
+		background: var(--card);
+	}
+
+	.section-inner {
 		display: grid;
-		gap: 1rem;
+		gap: clamp(1.25rem, 3vw, 2rem);
 		padding-block: var(--space-section);
 	}
 
-	h1 {
-		font-size: clamp(2.7rem, 9vw, 5.25rem);
-		max-width: 820px;
+	.hero-inner {
+		gap: 1.2rem;
+		padding-block: clamp(4rem, 10vw, 7rem);
 	}
 
-	p:not(.kicker) {
+	h1 {
+		max-width: 900px;
+		font-size: clamp(3rem, 9vw, 6.6rem);
+		letter-spacing: 0;
+	}
+
+	h1 em {
+		font-style: italic;
+	}
+
+	.hero-copy {
+		max-width: 720px;
 		color: var(--muted);
-		font-size: clamp(1rem, 2vw, 1.15rem);
+		font-size: clamp(1.08rem, 2vw, 1.28rem);
+	}
+
+	.statement {
+		max-width: 860px;
+		color: var(--ink);
+		font-family: var(--font-serif);
+		font-size: clamp(1.8rem, 4.8vw, 3.35rem);
+		font-weight: 500;
+		line-height: 1.14;
+	}
+
+	.research-inner,
+	.writing-inner,
+	.experience-inner {
+		max-width: var(--maxw-prose);
+		margin-inline: auto;
+	}
+
+	.research-inner p,
+	.writing-inner p {
+		color: var(--muted);
+		font-size: clamp(1rem, 2vw, 1.12rem);
+	}
+
+	.selected-work {
+		gap: 1.5rem;
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.experience-list {
+		display: grid;
 	}
 
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.75rem;
-		padding-top: 0.5rem;
+	}
+
+	@media (max-width: 760px) {
+		.project-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
