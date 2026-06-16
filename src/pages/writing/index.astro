@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PostListItem from '../../components/PostListItem.astro';
+
+const posts = (await getCollection('writing'))
+	.filter((post) => !post.data.draft)
+	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const description = 'Notes on AI, work, and the people the shift affects.';
+---
+
+<PageLayout title="Writing · Michael Van Horn" description={description}>
+	<section class="writing-index" aria-labelledby="writing-title">
+		<div class="wide writing-inner">
+			<div class="intro">
+				<SectionHeading
+					kicker="Writing"
+					title="Notes on AI and the future of work."
+					id="writing-title"
+				/>
+				<p>Short pieces on AI adoption, job stress, and keeping the human side in view.</p>
+			</div>
+
+			{
+				posts.length > 0 ? (
+					<div class="post-list">
+						{posts.map((post) => (
+							<PostListItem
+								title={post.data.title}
+								date={post.data.date}
+								dek={post.data.dek}
+								href={`/writing/${post.id}`}
+							/>
+						))}
+					</div>
+				) : (
+					<p class="empty">Notes are coming soon.</p>
+				)
+			}
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.writing-index {
+		background: var(--paper);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.writing-inner {
+		display: grid;
+		gap: clamp(1.5rem, 4vw, 2.5rem);
+		padding-block: var(--space-section);
+	}
+
+	.intro {
+		display: grid;
+		gap: 1rem;
+		max-width: var(--maxw-prose);
+	}
+
+	.intro p {
+		color: var(--muted);
+		font-size: clamp(1rem, 2vw, 1.15rem);
+	}
+
+	.post-list {
+		display: grid;
+		max-width: var(--maxw-prose);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.empty {
+		color: var(--muted);
+		font-size: clamp(1rem, 2vw, 1.15rem);
+	}
+</style>

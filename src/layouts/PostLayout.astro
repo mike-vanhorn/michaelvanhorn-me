@@ -1,0 +1,113 @@
+---
+import PageLayout from './PageLayout.astro';
+
+interface Props {
+	title: string;
+	date: Date;
+	dek?: string;
+	tags?: string[];
+}
+
+const { title, date, dek, tags } = Astro.props;
+const description = dek ?? title;
+const pageTitle = `${title} · Writing · Michael Van Horn`;
+const formattedDate = new Intl.DateTimeFormat('en', {
+	month: 'long',
+	day: 'numeric',
+	year: 'numeric',
+	timeZone: 'UTC',
+}).format(date);
+const isoDate = date.toISOString().slice(0, 10);
+---
+
+<PageLayout title={pageTitle} description={description}>
+	<article class="post">
+		<header class="prose post-header">
+			<a class="back-link" href="/writing">Back to writing</a>
+			<p class="kicker">Writing</p>
+			<h1>{title}</h1>
+			<p class="post-date"><time datetime={isoDate}>{formattedDate}</time></p>
+			{
+				tags && tags.length > 0 && (
+					<ul class="tags" aria-label="Tags">
+						{tags.map((tag) => (
+							<li>{tag}</li>
+						))}
+					</ul>
+				)
+			}
+		</header>
+
+		<div class="prose post-body">
+			<slot />
+		</div>
+	</article>
+</PageLayout>
+
+<style>
+	.post {
+		background: var(--paper);
+		border-bottom: 1px solid var(--line);
+		padding-block: var(--space-section);
+	}
+
+	.post-header {
+		display: grid;
+		gap: 0.75rem;
+		margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+	}
+
+	.back-link {
+		width: fit-content;
+		color: var(--clay);
+		font-size: 0.95rem;
+		font-weight: 600;
+		text-decoration-thickness: 1px;
+	}
+
+	.post-header h1 {
+		font-size: clamp(2rem, 5vw, 3.25rem);
+		letter-spacing: 0;
+	}
+
+	.post-date {
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.tags li {
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		color: var(--muted);
+		font-size: 0.8rem;
+		padding: 0.2rem 0.55rem;
+	}
+
+	.post-body {
+		display: grid;
+		gap: 1.15rem;
+	}
+
+	.post-body :global(p) {
+		color: var(--ink);
+		font-size: clamp(1.05rem, 2vw, 1.18rem);
+	}
+
+	.post-body :global(h2) {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		margin-top: 0.75rem;
+	}
+
+	.post-body :global(a) {
+		color: var(--clay);
+	}
+</style>
