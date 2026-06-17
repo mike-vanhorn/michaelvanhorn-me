@@ -1,5 +1,7 @@
 # Portfolio Site (michaelvanhorn.me) Implementation Plan
 
+> **HISTORICAL RECORD, superseded in places.** This is the original 2026-06-16 implementation plan. The live site has since diverged; see `AGENTS.md` "Settled Decisions" for current truth. Notable deltas: typography unified to Inter (Fraunces dropped); the EY reference was removed until the internship begins (Fall 2026); Waaban public copy is softened to "AI-powered market-analysis platform" only (no trading/HMM/co-founder specifics); public email is contact@michaelvanhorn.me; a /research abstract page was added. Do not use this doc to reintroduce any of the above.
+
 > **For agentic workers:** This plan is executed by **OpenAI Codex (GPT-5.5)** via Mike relaying prompts (the `work-with-codex` workflow). Claude plans/reviews; Codex builds. Steps use checkbox (`- [ ]`) syntax for tracking. Each task ends in a **Browser Use verification gate** (Codex runs the dev server, opens the page, visually verifies against the design spec, fixes deviations) and a commit.
 
 **Goal:** Ship a fast, polished, hireable personal-brand site for Mike Van Horn at michaelvanhorn.me that positions him as "the human side of AI in the workplace."

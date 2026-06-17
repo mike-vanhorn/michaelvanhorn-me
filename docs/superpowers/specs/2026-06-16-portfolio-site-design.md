@@ -3,6 +3,8 @@
 **Date:** 2026-06-16
 **Owner:** Mike Van Horn
 **Builder:** OpenAI Codex (via Mike relaying prompts); Claude is planner/reviewer
+
+> **HISTORICAL RECORD, superseded in places.** This is the original 2026-06-16 design spec. The live site has since diverged; see `AGENTS.md` "Settled Decisions" for current truth. Notable deltas: typography unified to Inter (Fraunces dropped); the EY reference was removed until the internship begins (Fall 2026); Waaban public copy is softened to "AI-powered market-analysis platform" only (no trading/HMM/co-founder specifics); public email is contact@michaelvanhorn.me; a /research abstract page was added. Do not use this doc to reintroduce any of the above.
 **Status:** Approved design, pending spec review → implementation plan
 
 ---
