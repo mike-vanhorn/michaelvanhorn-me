@@ -65,6 +65,14 @@ const findings = [
 				being run inside organizations. The two halves connect: the data points to what reduces
 				stress, and the review surfaces where current training practice falls short of it.
 			</p>
+			<dl class="study-details">
+				<div><dt>Data</dt><dd>RAND American Life Panel, a national survey of full-time U.S. employees</dd></div>
+				<div><dt>Sample</dt><dd>n = 793</dd></div>
+				<div><dt>Method</dt><dd>Multiple linear regression, controlling for age, gender, income, and education</dd></div>
+				<div><dt>Literature review</dt><dd>76 practitioner articles on AI training and development</dd></div>
+				<div><dt>Output</dt><dd>Four evidence-based training-and-development recommendations</dd></div>
+				<div><dt>Limitation</dt><dd>Observational survey data, so results show associations rather than proven causation</dd></div>
+			</dl>
 		</div>
 	</section>
 
@@ -156,5 +164,41 @@ const findings = [
 		color: var(--ink);
 		font-size: clamp(1.05rem, 2vw, 1.18rem);
 		padding-left: 0.25rem;
+	}
+
+	.study-details {
+		margin: 1rem 0 0;
+		display: grid;
+		border-top: 1px solid var(--line);
+		max-width: var(--maxw-prose);
+	}
+
+	.study-details > div {
+		display: grid;
+		grid-template-columns: 9.5rem 1fr;
+		gap: 1rem;
+		padding: 0.7rem 0;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.study-details dt {
+		color: var(--muted);
+		font-size: 0.78rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		padding-top: 0.2rem;
+	}
+
+	.study-details dd {
+		margin: 0;
+		color: var(--ink);
+		font-size: clamp(1rem, 2vw, 1.08rem);
+	}
+
+	@media (max-width: 560px) {
+		.study-details > div {
+			grid-template-columns: 1fr;
+			gap: 0.15rem;
+		}
 	}
 </style>
