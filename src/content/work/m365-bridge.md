@@ -1,7 +1,7 @@
 ---
 title: "m365-bridge"
 role: "Solo build"
-dates: "Feb 2026–present"
+dates: "2026–present"
 order: 5
 summary: "MCP server giving AI safe, live access to Microsoft 365."
 status: "In production"
