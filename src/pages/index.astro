@@ -131,6 +131,37 @@ const description =
 		</div>
 	</section>
 
+	<section class="home-section" aria-labelledby="recommendation-title">
+		<div class="wide section-inner recommendation-inner">
+			<SectionHeading
+				kicker="Recommendation"
+				title="What it's like to work with me."
+				id="recommendation-title"
+			/>
+			<figure class="recommendation">
+				<blockquote>
+					<p>
+						He's proactive, reliable, and easy to work with, someone who notices what
+						needs attention and takes initiative without needing much direction. One of the
+						most valuable contributions he made was developing a set of AI guidelines for
+						staff and future student office assistants, creating clarity around how we
+						approach and use these tools in our work.
+					</p>
+					<p>
+						I'd confidently recommend him for roles where clarity, ownership, and
+						follow-through matter. He'll bring structure and make processes better wherever
+						he lands.
+					</p>
+				</blockquote>
+				<figcaption>
+					<span class="rec-name">Sarah Cawthon</span>
+					<span class="rec-role">Career Education &amp; Content Manager, University of Minnesota</span>
+					<span class="rec-context">Supervised Mike at U of M Career Services</span>
+				</figcaption>
+			</figure>
+		</div>
+	</section>
+
 	<ContactBand />
 </PageLayout>
 
@@ -264,5 +295,46 @@ const description =
 		.project-grid {
 			grid-template-columns: 1fr;
 		}
+	}
+
+	.recommendation-inner {
+		max-width: var(--maxw-prose);
+		margin-inline: auto;
+	}
+
+	.recommendation {
+		margin: 0;
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.recommendation blockquote {
+		margin: 0;
+		display: grid;
+		gap: 0.9rem;
+		padding-left: 1.25rem;
+		border-left: 2px solid var(--clay);
+	}
+
+	.recommendation blockquote p {
+		color: var(--ink);
+		font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+		line-height: 1.4;
+	}
+
+	.recommendation figcaption {
+		display: grid;
+		gap: 0.1rem;
+	}
+
+	.rec-name {
+		font-weight: 600;
+		color: var(--ink);
+	}
+
+	.rec-role,
+	.rec-context {
+		color: var(--muted);
+		font-size: 0.95rem;
 	}
 </style>
