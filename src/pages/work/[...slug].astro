@@ -120,4 +120,49 @@ const description = project.data.summary;
 		color: var(--ink);
 		font-size: clamp(1.05rem, 2vw, 1.18rem);
 	}
+
+	.detail-body :global(h2) {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		margin-top: 0.75rem;
+	}
+
+	.detail-body :global(h3) {
+		font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+		margin-top: 0.5rem;
+	}
+
+	.detail-body :global(a) {
+		color: var(--clay);
+	}
+
+	.detail-body :global(ul),
+	.detail-body :global(ol) {
+		display: grid;
+		gap: 0.5rem;
+		margin: 0;
+		padding-left: 1.4rem;
+		color: var(--ink);
+		font-size: clamp(1.05rem, 2vw, 1.18rem);
+	}
+
+	.detail-body :global(li) {
+		padding-left: 0.25rem;
+	}
+
+	.detail-body :global(blockquote) {
+		margin: 0;
+		border-left: 3px solid var(--clay);
+		padding-left: 1.15rem;
+		color: var(--muted);
+		font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+		font-style: italic;
+	}
+
+	.detail-body :global(code) {
+		background: var(--card);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		padding: 0.1rem 0.35rem;
+		font-size: 0.9em;
+	}
 </style>

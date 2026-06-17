@@ -1,4 +1,6 @@
 ---
+import { site } from '../data/site.ts';
+
 const links = [
 	{ href: '/work', label: 'Work' },
 	{ href: '/writing', label: 'Writing' },
@@ -14,8 +16,8 @@ const links = [
 			{links.map((link) => <a href={link.href}>{link.label}</a>)}
 		</nav>
 		<div class="footer-contact">
-			<a href="mailto:contact@michaelvanhorn.me">contact@michaelvanhorn.me</a>
-			<a href="https://linkedin.com/in/michaelvanhorn06">LinkedIn</a>
+			<a href={`mailto:${site.email}`}>{site.email}</a>
+			<a href={site.linkedin}>LinkedIn</a>
 			<span>michaelvanhorn.me</span>
 		</div>
 	</div>

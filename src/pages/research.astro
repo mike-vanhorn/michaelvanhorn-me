@@ -1,0 +1,160 @@
+---
+import ContactBand from '../components/ContactBand.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { site } from '../data/site.ts';
+
+const description =
+	'AI Adoption & Job Stress: a co-authored study on what actually reduces employee stress when organizations roll out AI. Summary, methods, and key findings.';
+
+const findings = [
+	'A proactive attitude toward AI was the strongest protective factor. Employees who approached AI as something to engage with, rather than something happening to them, reported lower job stress after adoption.',
+	'Participation in employer AI training programs was not, on its own, associated with lower stress. Offering training was not the same as changing how people felt about the change.',
+	'General technological savvy did not transfer to lower AI-specific stress. Being comfortable with technology in general did not protect people from the strain of a new AI rollout.',
+	'Among demographic factors, higher income tracked with lower stress, while higher educational attainment tracked with higher stress. Gender and age were not significant predictors.',
+	'The practical implication: AI training and development should be redesigned around continuous learning, critical thinking and judgment, leadership-level training, and job-specific customization, so the goal is building proactive engagement, not just teaching the tool.',
+];
+---
+
+<PageLayout title="Research · AI Adoption & Job Stress · Michael Van Horn" description={description}>
+	<section class="research-page" aria-labelledby="research-title">
+		<div class="wide research-inner">
+			<div class="page-heading">
+				<p class="kicker">Featured · Research</p>
+				<h1 id="research-title">AI Adoption &amp; Job Stress</h1>
+				<p class="lead">
+					What actually reduces employee stress when an organization rolls out AI, and why
+					the answer has less to do with the tool than with how people are brought along.
+				</p>
+				<p class="byline">A co-authored OLPD manuscript, presented at the 2026 OLPD Student Research Conference at the University of Minnesota.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="research-section" aria-labelledby="abstract-title">
+		<div class="wide section-inner prose">
+			<SectionHeading kicker="Abstract" title="The short version." accent="green" id="abstract-title" />
+			<p>
+				Organizations are adopting AI to gain efficiency and cut costs, often relying on
+				employees to learn the new tools largely on their own. This study examines how job
+				stress changes after workplace AI adoption, and which factors shape that change. Drawing
+				on a national survey of full-time U.S. employees, it tests whether a proactive attitude
+				toward AI, general technological savvy, and employer-provided AI training are each
+				associated with lower stress. A proactive attitude toward AI stands out as the factor
+				most clearly linked to lower stress; training participation and general tech comfort are
+				not. Building on those results, the paper reviews how AI training is currently practiced
+				and proposes a redesign centered on continuous learning, critical thinking, leadership
+				training, and job-specific customization.
+			</p>
+		</div>
+	</section>
+
+	<section class="research-section card-section" aria-labelledby="approach-title">
+		<div class="wide section-inner prose">
+			<SectionHeading kicker="Approach" title="How the study was done." id="approach-title" />
+			<p>
+				The core analysis is a quantitative study using national survey data from the RAND
+				American Life Panel, narrowed to full-time employees. Using multiple linear regression,
+				it models job stress after AI adoption against three factors of interest (proactive
+				attitude toward AI, technological savvy, and participation in employer AI training) while
+				controlling for age, gender, income, and education.
+			</p>
+			<p>
+				That quantitative work is paired with a review of practitioner-oriented literature
+				(business and management publications) on how AI training and development is actually
+				being run inside organizations. The two halves connect: the data points to what reduces
+				stress, and the review surfaces where current training practice falls short of it.
+			</p>
+		</div>
+	</section>
+
+	<section class="research-section" aria-labelledby="findings-title">
+		<div class="wide section-inner">
+			<SectionHeading kicker="Key findings" title="What the data showed." id="findings-title" />
+			<ul class="findings">
+				{findings.map((finding) => <li>{finding}</li>)}
+			</ul>
+		</div>
+	</section>
+
+	<section class="research-section card-section" aria-labelledby="access-title">
+		<div class="wide section-inner prose">
+			<SectionHeading kicker="The work" title="A note on this research." accent="green" id="access-title" />
+			<p>
+				This is a co-authored research project, written collaboratively. This page is a summary
+				of the manuscript rather than the full paper. The full manuscript is available on
+				request: <a href={`mailto:${site.email}`}>{site.email}</a>.
+			</p>
+		</div>
+	</section>
+
+	<ContactBand />
+</PageLayout>
+
+<style>
+	.research-page,
+	.research-section {
+		background: var(--paper);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.card-section {
+		background: var(--card);
+	}
+
+	.research-inner {
+		padding-block: clamp(3rem, 8vw, 5.5rem);
+	}
+
+	.page-heading {
+		display: grid;
+		gap: 0.75rem;
+		max-width: var(--maxw-prose);
+	}
+
+	.page-heading h1 {
+		font-size: clamp(2.2rem, 6vw, 3.5rem);
+		letter-spacing: 0;
+	}
+
+	.lead {
+		color: var(--muted);
+		font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+		max-width: var(--maxw-prose);
+	}
+
+	.byline {
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	.section-inner {
+		display: grid;
+		gap: clamp(1.25rem, 3vw, 2rem);
+		padding-block: var(--space-section);
+		max-width: var(--maxw-prose);
+	}
+
+	.section-inner p {
+		color: var(--ink);
+		font-size: clamp(1.05rem, 2vw, 1.18rem);
+	}
+
+	.section-inner a {
+		color: var(--clay);
+	}
+
+	.findings {
+		display: grid;
+		gap: 1rem;
+		margin: 0;
+		max-width: var(--maxw-prose);
+		padding-left: 1.4rem;
+	}
+
+	.findings li {
+		color: var(--ink);
+		font-size: clamp(1.05rem, 2vw, 1.18rem);
+		padding-left: 0.25rem;
+	}
+</style>

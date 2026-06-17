@@ -1,43 +1,65 @@
-# Astro Starter Kit: Minimal
+# michaelvanhorn.me
 
-```sh
-npm create astro@latest -- --template minimal
+Michael Van Horn's personal portfolio — the human side of AI in the workplace. HRD research, built projects, and writing on AI adoption and job stress.
+
+## Stack
+
+- [Astro 6](https://astro.build) — static site generation (no client JS framework)
+- Content collections for `work` and `writing` entries (Markdown + typed frontmatter)
+- Deployed on [Vercel](https://vercel.com)
+
+## Commands
+
+All commands run from the project root:
+
+| Command           | Action                                       |
+| :---------------- | :------------------------------------------- |
+| `npm install`     | Install dependencies                         |
+| `npm run dev`     | Start the local dev server at `localhost:4321` |
+| `npm run build`   | Build the production site to `./dist/`       |
+| `npm run preview` | Preview the production build locally         |
+
+## Adding content
+
+Content is driven by two collections defined in `src/content.config.ts`.
+
+### Add a work entry
+
+Create a Markdown file in `src/content/work/`. Frontmatter shape:
+
+```yaml
+---
+title: Project Name
+role: Co-founder & CEO
+dates: 2026–present
+order: 1            # sort order in the work list (lower = first)
+summary: One-line description shown on cards and the detail header.
+status: Active      # optional badge text
+links:              # optional
+  - label: Visit site
+    url: https://example.com
+draft: false        # optional; true hides it from the build
+---
+
+Markdown body for the project detail page.
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The page is served at `/work/<filename>`.
 
-## 🚀 Project Structure
+### Add a writing entry
 
-Inside of your Astro project, you'll see the following folders and files:
+Create a Markdown file in `src/content/writing/`. Frontmatter shape:
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```yaml
+---
+title: Post title
+date: 2026-05-20            # YYYY-MM-DD
+dek: Optional one-line summary shown in lists and as the meta description.
+tags: ["AI", "job stress"] # optional
+draft: false               # optional; true hides it from the build
+---
+
+Markdown body for the post.
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The post is served at `/writing/<filename>`.

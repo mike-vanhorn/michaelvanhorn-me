@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { site } from '../data/site.ts';
 
 const description =
 	'Reach Michael Van Horn by email or LinkedIn. Based in the Twin Cities, MN.';
@@ -7,15 +8,15 @@ const description =
 const channels = [
 	{
 		label: 'Email',
-		value: 'contact@michaelvanhorn.me',
-		href: 'mailto:contact@michaelvanhorn.me',
+		value: site.email,
+		href: `mailto:${site.email}`,
 	},
 	{
 		label: 'LinkedIn',
-		value: 'linkedin.com/in/michaelvanhorn06',
-		href: 'https://linkedin.com/in/michaelvanhorn06',
+		value: site.linkedin.replace('https://', ''),
+		href: site.linkedin,
 	},
-	{ label: 'Location', value: 'Twin Cities, MN' },
+	{ label: 'Location', value: site.location },
 ];
 ---
 

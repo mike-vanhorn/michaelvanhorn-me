@@ -40,10 +40,30 @@ const { href, variant = 'solid' } = Astro.props;
 		color: var(--clay);
 	}
 
-	.button:hover {
+	.button.solid:hover {
 		background: var(--green);
 		border-color: var(--green);
 		color: var(--paper);
 		text-decoration: none;
+	}
+
+	.button.ghost:hover {
+		background: color-mix(in srgb, var(--clay) 10%, transparent);
+		border-color: var(--clay);
+		color: var(--clay);
+		text-decoration: none;
+	}
+
+	.button:active {
+		transform: translateY(1px);
+		background: var(--green);
+		border-color: var(--green);
+		color: var(--paper);
+	}
+
+	.button.ghost:active {
+		background: color-mix(in srgb, var(--clay) 18%, transparent);
+		border-color: var(--clay);
+		color: var(--clay);
 	}
 </style>

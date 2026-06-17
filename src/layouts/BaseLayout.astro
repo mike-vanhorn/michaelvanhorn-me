@@ -7,11 +7,43 @@ interface Props {
 	title: string;
 	description: string;
 	ogImage?: string;
+	ogType?: string;
+	publishedTime?: string;
 }
 
-const { title, description, ogImage = '/og-default.png' } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const {
+	title,
+	description,
+	ogImage = '/og-default.png',
+	ogType = 'website',
+	publishedTime,
+} = Astro.props;
+// Normalize the canonical path to clean, extensionless, non-trailing-slash URLs
+// so canonicals match the sitemap and every internal href (build emits `*.html`
+// files under `build.format: 'file'`).
+const canonicalPath = Astro.url.pathname
+	.replace(/index\.html$/, '')
+	.replace(/\.html$/, '')
+	.replace(/\/$/, '');
+const canonical = new URL(canonicalPath || '/', Astro.site);
 const image = new URL(ogImage, Astro.site);
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Michael Van Horn',
+	url: 'https://michaelvanhorn.me',
+	jobTitle: 'HRD Researcher & Builder',
+	worksFor: {
+		'@type': 'Organization',
+		name: 'Meet Minneapolis',
+	},
+	alumniOf: {
+		'@type': 'CollegeOrUniversity',
+		name: 'University of Minnesota',
+	},
+	sameAs: ['https://linkedin.com/in/michaelvanhorn06'],
+};
 ---
 
 <!doctype html>
@@ -21,20 +53,26 @@ const image = new URL(ogImage, Astro.site);
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="author" content="Michael Van Horn" />
 		<link rel="canonical" href={canonical} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content={ogType} />
 		<meta property="og:url" content={canonical} />
+		<meta property="og:site_name" content="Michael Van Horn" />
 		<meta property="og:image" content={image} />
+		<meta property="og:image:alt" content={`Michael Van Horn — ${title}`} />
+		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={image} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Skip to content</a>
 		<slot />
 	</body>
 </html>

@@ -1,9 +1,13 @@
+---
+import { site } from '../data/site.ts';
+---
+
 <section class="contact-band" aria-labelledby="contact-band-title">
 	<div class="contact-inner wide">
 		<h2 id="contact-band-title">Let's talk about AI and people.</h2>
 		<div class="contact-links">
-			<a href="mailto:contact@michaelvanhorn.me">contact@michaelvanhorn.me</a>
-			<a href="https://linkedin.com/in/michaelvanhorn06">LinkedIn</a>
+			<a href={`mailto:${site.email}`}>{site.email}</a>
+			<a href={site.linkedin}>LinkedIn</a>
 			<span>michaelvanhorn.me</span>
 		</div>
 	</div>

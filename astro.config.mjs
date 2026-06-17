@@ -5,5 +5,9 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://michaelvanhorn.me',
+	trailingSlash: 'never',
+	build: {
+		format: 'file',
+	},
 	integrations: [sitemap()],
 });
