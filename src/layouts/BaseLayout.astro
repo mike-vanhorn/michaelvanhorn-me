@@ -2,6 +2,7 @@
 import '../styles/fonts.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
 	title: string;
@@ -74,5 +75,6 @@ const personSchema = {
 	<body>
 		<a href="#main-content" class="skip-link">Skip to content</a>
 		<slot />
+		<Analytics />
 	</body>
 </html>
