@@ -15,7 +15,7 @@ const options = locales.filter((lang) => lang !== currentLang);
 ---
 
 <details class="lang-switcher">
-	<summary aria-label={t('language.label')}>
+	<summary aria-label={`${t('language.label')}: ${languages[currentLang]}`} title={languages[currentLang]}>
 		<span>{languageShortLabels[currentLang]}</span>
 	</summary>
 	<ul class="lang-options">

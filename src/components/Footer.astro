@@ -24,6 +24,7 @@ const localizedHome = localizePath('/', lang);
 			<a href={site.linkedin}>LinkedIn</a>
 			<span>michaelvanhorn.me</span>
 		</div>
+		{t('footer.signoff') && <p class="footer-signoff">{t('footer.signoff')}</p>}
 	</div>
 </footer>
 
@@ -57,6 +58,12 @@ const localizedHome = localizePath('/', lang);
 	.footer-contact span {
 		color: var(--paper);
 		font-size: 0.95rem;
+	}
+
+	.footer-signoff {
+		color: var(--paper);
+		font-size: 0.95rem;
+		margin: 0;
 	}
 
 	.site-footer a:hover {

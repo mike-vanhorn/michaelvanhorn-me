@@ -6,15 +6,16 @@ import { localeFromEntryId, localizePath, useTranslations, type Locale } from '.
 
 interface Props {
 	lang: Locale;
+	contentLang?: Locale;
 }
 
-const { lang } = Astro.props;
+const { lang, contentLang = lang } = Astro.props;
 const t = useTranslations(lang);
 
 const projects = (await getCollection('work'))
 	.filter((project) => !project.data.draft)
 	.map((project) => ({ project, parsed: localeFromEntryId(project.id) }))
-	.filter(({ parsed }) => parsed.locale === lang)
+	.filter(({ parsed }) => parsed.locale === contentLang)
 	.sort((a, b) => a.project.data.order - b.project.data.order);
 ---
 
