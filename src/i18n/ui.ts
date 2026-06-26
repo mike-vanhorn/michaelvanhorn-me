@@ -214,6 +214,8 @@ export const ui = {
 		'work.heading': 'Built projects at the edge of AI and work.',
 		'work.intro':
 			'A short collection of products and personal systems I have built to make AI and knowledge work more useful.',
+		'work.projectsAria': 'Selected projects',
+		'work.projectsKicker': 'Selected projects',
 		'work.back': 'Back to work',
 		'work.metaAria': 'Project details',
 		'work.linksAria': 'Project links',
@@ -415,6 +417,8 @@ export const ui = {
 		'work.heading': 'Những dự án được xây ở ranh giới giữa AI và công việc.',
 		'work.intro':
 			'Một tuyển tập ngắn các sản phẩm và hệ thống cá nhân tôi đã xây để giúp AI và công việc tri thức trở nên hữu ích hơn.',
+		'work.projectsAria': 'Dự án chọn lọc',
+		'work.projectsKicker': 'Dự án chọn lọc',
 		'work.back': 'Quay lại Công việc',
 		'work.metaAria': 'Chi tiết dự án',
 		'work.linksAria': 'Liên kết dự án',
@@ -618,6 +622,8 @@ export const ui = {
 		'work.heading': 'Proyectos construidos en el borde entre la IA y el trabajo.',
 		'work.intro':
 			'Una breve colección de productos y sistemas personales que he construido para hacer la IA y el trabajo de conocimiento más útiles.',
+		'work.projectsAria': 'Proyectos seleccionados',
+		'work.projectsKicker': 'Proyectos seleccionados',
 		'work.back': 'Volver a Trabajo',
 		'work.metaAria': 'Detalles del proyecto',
 		'work.linksAria': 'Enlaces del proyecto',
