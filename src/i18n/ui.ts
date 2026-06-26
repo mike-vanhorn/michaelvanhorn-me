@@ -77,6 +77,9 @@ export const ui = {
 		'home.opensource.archived': 'archived',
 		'home.opensource.descFallback': '{language} repository',
 		'home.opensource.viewProfile': 'View my GitHub',
+		'home.opensource.repo.michaelvanhornMe.description': 'Personal portfolio site for Michael Van Horn.',
+		'home.opensource.repo.markedInRed.description':
+			'Awareness map for Missing and Murdered Indigenous Women, Girls, and Two-Spirit people.',
 		'home.writing.kicker': 'Writing',
 		'home.writing.title': 'Notes on AI and the future of work.',
 		'home.writing.body': 'Short pieces on AI adoption, job stress, and keeping the human side in view.',
@@ -273,6 +276,10 @@ export const ui = {
 		'home.opensource.archived': 'đã lưu trữ',
 		'home.opensource.descFallback': 'Repo {language}',
 		'home.opensource.viewProfile': 'Xem GitHub của tôi',
+		'home.opensource.repo.michaelvanhornMe.description':
+			'Trang portfolio cá nhân của Michael Van Horn.',
+		'home.opensource.repo.markedInRed.description':
+			'Bản đồ nâng cao nhận thức về Phụ nữ, Trẻ em gái và Người Two-Spirit Bản địa bị mất tích và bị sát hại.',
 		'home.writing.kicker': 'Bài viết',
 		'home.writing.title': 'Ghi chú về AI và tương lai của công việc.',
 		'home.writing.body':
@@ -472,6 +479,10 @@ export const ui = {
 		'home.opensource.archived': 'archivado',
 		'home.opensource.descFallback': 'Repositorio de {language}',
 		'home.opensource.viewProfile': 'Ver mi GitHub',
+		'home.opensource.repo.michaelvanhornMe.description':
+			'Sitio de portfolio personal de Michael Van Horn.',
+		'home.opensource.repo.markedInRed.description':
+			'Mapa de concientización sobre Mujeres, Niñas y personas Two-Spirit Indígenas desaparecidas y asesinadas.',
 		'home.writing.kicker': 'Escritura',
 		'home.writing.title': 'Notas sobre IA y el futuro del trabajo.',
 		'home.writing.body':
