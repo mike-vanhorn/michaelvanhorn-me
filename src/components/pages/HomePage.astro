@@ -235,13 +235,8 @@ const to = (path: string) => localizePath(path, lang);
 	@media (min-width: 880px) {
 		.hero-inner {
 			grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
-			align-items: end;
+			align-items: center;
 			gap: clamp(2rem, 4vw, 3rem);
-			padding-bottom: 0;
-		}
-
-		.hero-content {
-			padding-bottom: clamp(4rem, 10vw, 7rem);
 		}
 
 		h1 {
@@ -250,7 +245,7 @@ const to = (path: string) => localizePath(path, lang);
 
 		.hero-portrait {
 			order: initial;
-			align-self: end;
+			align-self: center;
 		}
 
 		.hero-portrait-image {
