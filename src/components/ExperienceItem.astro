@@ -3,15 +3,36 @@ interface Props {
 	org: string;
 	role: string;
 	dates: string;
+	details?: string[];
 }
 
-const { org, role, dates } = Astro.props;
+const { org, role, dates, details } = Astro.props;
+const hasDetails = Array.isArray(details) && details.length > 0;
 ---
 
-<article class="experience-item">
-	<h3>{org}</h3>
-	<p>{role} · {dates}</p>
-</article>
+{
+	hasDetails ? (
+		<details class="experience-item collapsible">
+			<summary>
+				<span class="summary-text">
+					<span class="org">{org}</span>
+					<span class="meta">{role} · {dates}</span>
+				</span>
+				<span class="chevron" aria-hidden="true" />
+			</summary>
+			<ul class="detail-list">
+				{details.map((point) => (
+					<li>{point}</li>
+				))}
+			</ul>
+		</details>
+	) : (
+		<article class="experience-item">
+			<h3>{org}</h3>
+			<p>{role} · {dates}</p>
+		</article>
+	)
+}
 
 <style>
 	.experience-item {
@@ -21,15 +42,77 @@ const { org, role, dates } = Astro.props;
 		padding-block: 1rem;
 	}
 
-	h3 {
+	details.experience-item {
+		display: block;
+	}
+
+	h3,
+	.org {
 		font-family: var(--font-sans);
 		font-size: 1rem;
 		font-weight: 700;
 		line-height: 1.3;
 	}
 
-	p {
+	p,
+	.meta {
 		color: var(--muted);
 		font-size: 0.95rem;
+	}
+
+	summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		cursor: pointer;
+		list-style: none;
+	}
+
+	summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.summary-text {
+		display: grid;
+		gap: 0.2rem;
+	}
+
+	.chevron {
+		flex: none;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-right: 2px solid var(--muted);
+		border-bottom: 2px solid var(--muted);
+		transform: rotate(45deg);
+		transition: transform 150ms ease;
+	}
+
+	details[open] .chevron {
+		transform: rotate(-135deg);
+	}
+
+	summary:hover .org {
+		color: var(--clay);
+	}
+
+	summary:focus-visible {
+		outline: 2px solid var(--clay);
+		outline-offset: 4px;
+		border-radius: var(--radius);
+	}
+
+	.detail-list {
+		display: grid;
+		gap: 0.5rem;
+		margin: 0.85rem 0 0.15rem;
+		padding-left: 1.15rem;
+	}
+
+	.detail-list li {
+		color: var(--ink);
+		font-size: 0.95rem;
+		line-height: 1.5;
+		list-style: disc;
 	}
 </style>

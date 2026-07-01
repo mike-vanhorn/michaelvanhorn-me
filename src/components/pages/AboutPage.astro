@@ -6,7 +6,7 @@ import ExperienceItem from '../ExperienceItem.astro';
 import PageLayout from '../../layouts/PageLayout.astro';
 import SectionHeading from '../SectionHeading.astro';
 import headshot from '../../assets/headshot.png';
-import { useTranslations, type Locale } from '../../i18n/ui';
+import { experienceDetails, useTranslations, type Locale } from '../../i18n/ui';
 
 interface Props {
 	lang: Locale;
@@ -14,23 +14,32 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const details = experienceDetails[lang === 'oj' ? 'en' : lang] ?? experienceDetails.en;
 
 const experience = [
 	{
 		org: 'Meet Minneapolis',
 		role: t('about.experience.meetMinneapolis.role'),
 		dates: t('about.experience.meetMinneapolis.dates'),
+		details: details.meetMinneapolis,
 	},
-	{ org: 'Waaban', role: t('about.experience.waaban.role'), dates: t('about.experience.waaban.dates') },
+	{
+		org: 'Waaban',
+		role: t('about.experience.waaban.role'),
+		dates: t('about.experience.waaban.dates'),
+		details: details.waaban,
+	},
 	{
 		org: 'University of Minnesota, Career Services',
 		role: t('about.experience.umn.role'),
 		dates: t('about.experience.umn.dates'),
+		details: details.umn,
 	},
 	{
 		org: 'Red Lake School District',
 		role: t('about.experience.redLake.role'),
 		dates: t('about.experience.redLake.dates'),
+		details: details.redLake,
 	},
 ];
 
@@ -98,7 +107,7 @@ const education = [
 			<div class="timeline">
 				{
 					experience.map((item) => (
-						<ExperienceItem org={item.org} role={item.role} dates={item.dates} />
+						<ExperienceItem org={item.org} role={item.role} dates={item.dates} details={item.details} />
 					))
 				}
 			</div>

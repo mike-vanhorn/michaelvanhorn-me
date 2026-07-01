@@ -806,6 +806,73 @@ export const ui = {
 	}
 } as const;
 
+// Expandable job-detail bullets for the About "Experience" timeline, sourced from
+// Mike's résumé. Kept out of the `ui` string dict because values are arrays.
+// oj intentionally omitted → the About page falls back to `en`, matching the
+// curated-Ojibwe locale discipline used elsewhere on the site.
+export const experienceDetails: Record<string, Record<string, string[]>> = {
+	en: {
+		meetMinneapolis: [
+			'Secured IT approval for Copilot and opened an org-wide Claude trial at a 200-person organization, advancing enterprise AI adoption.',
+			'Built a Heritage Month flyer pipeline in Python that replaced a recurring manual process; it now runs monthly, owned end to end by the team.',
+			'Designed a supplier-directory audit tool with automated liveness verification, reputation scans, and a structured flag-for-review workflow.',
+			'Support equity and community impact initiatives on the Equity & Community Impact team, deliver professional development programming, and maintain the Diverse Suppliers, CSR, and Multicultural Media directories.',
+		],
+		waaban: [
+			'Co-founded and lead an AI-powered market-analysis platform on a three-person founding team, owning strategic direction, operations, and brand.',
+		],
+		umn: [
+			"Authored the office's first formal AI usage policy — a FERPA-compliant SOP defining approved and prohibited uses, data-protection requirements, and quality standards — adopted across all staff and student employees and approved by the Executive Director.",
+			'Designed a three-module prompting-training curriculum (AI fundamentals, prompting techniques, hands-on practice) plus an office-wide quick-reference, equipping non-technical staff to use AI responsibly.',
+			'Authored the SOPs the team runs on — front-desk operations, shared-inbox triage, and Handshake employer-posting review — standardizing the work and reducing onboarding time.',
+		],
+		redLake: [
+			'Executed full-cycle recruiting: drafted postings, screened candidates, ran new-hire orientation, verified I-9s and background checks, and maintained HRIS records.',
+			'Managed 300+ weekly package deliveries across three locations with a 100% on-time record, integrating Ojibwe cultural values consistent with Red Lake Nation standards.',
+		],
+	},
+	vi: {
+		meetMinneapolis: [
+			'Đạt được phê duyệt IT cho Copilot và mở bản dùng thử Claude trên toàn tổ chức tại một tổ chức 200 người, thúc đẩy việc áp dụng AI ở cấp doanh nghiệp.',
+			'Xây dựng quy trình tạo tờ rơi Heritage Month bằng Python, thay thế một quy trình thủ công lặp lại; nay chạy hàng tháng, do nhóm sở hữu trọn vẹn từ đầu đến cuối.',
+			'Thiết kế một công cụ kiểm toán danh bạ nhà cung cấp với xác minh trạng thái hoạt động tự động, quét uy tín, và quy trình gắn cờ để rà soát có cấu trúc.',
+			'Hỗ trợ các sáng kiến công bằng và tác động cộng đồng trong nhóm Equity & Community Impact, cung cấp chương trình phát triển chuyên môn, và duy trì các danh bạ Diverse Suppliers, CSR, và Multicultural Media.',
+		],
+		waaban: [
+			'Đồng sáng lập và dẫn dắt một nền tảng phân tích thị trường được hỗ trợ bởi AI trong một nhóm sáng lập ba người, phụ trách định hướng chiến lược, vận hành, và thương hiệu.',
+		],
+		umn: [
+			'Soạn thảo chính sách sử dụng AI chính thức đầu tiên của văn phòng — một SOP tuân thủ FERPA xác định các mục đích sử dụng được phép và bị cấm, yêu cầu bảo vệ dữ liệu, và tiêu chuẩn chất lượng — được áp dụng cho toàn bộ nhân viên và sinh viên và được Giám đốc Điều hành phê duyệt.',
+			'Thiết kế một chương trình đào tạo prompting ba học phần (nền tảng AI, kỹ thuật prompting, thực hành trực tiếp) cùng một tài liệu tra cứu nhanh cho toàn văn phòng, trang bị cho nhân viên phi kỹ thuật sử dụng AI một cách có trách nhiệm.',
+			'Soạn thảo các SOP mà nhóm vận hành theo — hoạt động lễ tân, phân loại hộp thư chung, và rà soát tin tuyển dụng của nhà tuyển dụng trên Handshake — chuẩn hóa công việc và giảm thời gian đào tạo hội nhập.',
+		],
+		redLake: [
+			'Thực hiện tuyển dụng trọn chu trình: soạn tin tuyển dụng, sàng lọc ứng viên, tổ chức định hướng nhân viên mới, xác minh I-9 và kiểm tra lý lịch, và duy trì hồ sơ HRIS.',
+			'Quản lý hơn 300 lượt giao gói hàng mỗi tuần tại ba địa điểm với thành tích đúng hạn 100%, lồng ghép các giá trị văn hóa Ojibwe nhất quán với các chuẩn mực của Red Lake Nation.',
+		],
+	},
+	es: {
+		meetMinneapolis: [
+			'Conseguí la aprobación de TI para Copilot y abrí una prueba de Claude en toda la organización en una organización de 200 personas, impulsando la adopción de IA a nivel empresarial.',
+			'Construí en Python un flujo de trabajo para los folletos del Heritage Month que reemplazó un proceso manual recurrente; ahora se ejecuta mensualmente, gestionado de principio a fin por el equipo.',
+			'Diseñé una herramienta de auditoría del directorio de proveedores con verificación automática de disponibilidad, escaneos de reputación y un flujo estructurado de marcado para revisión.',
+			'Apoyo iniciativas de equidad e impacto comunitario en el equipo de Equity & Community Impact, imparto programación de desarrollo profesional y mantengo los directorios de Diverse Suppliers, CSR y Multicultural Media.',
+		],
+		waaban: [
+			'Cofundé y dirijo una plataforma de análisis de mercado impulsada por IA en un equipo fundador de tres personas, a cargo de la dirección estratégica, las operaciones y la marca.',
+		],
+		umn: [
+			'Redacté la primera política formal de uso de IA de la oficina — un SOP conforme con FERPA que define usos permitidos y prohibidos, requisitos de protección de datos y estándares de calidad — adoptada por todo el personal y los estudiantes empleados y aprobada por la Directora Ejecutiva.',
+			'Diseñé un currículo de capacitación en prompting de tres módulos (fundamentos de IA, técnicas de prompting, práctica guiada) más una guía de referencia rápida para toda la oficina, capacitando al personal no técnico para usar la IA de forma responsable.',
+			'Redacté los SOP con los que opera el equipo — operaciones de recepción, triaje del buzón compartido y revisión de publicaciones de empleadores en Handshake — estandarizando el trabajo y reduciendo el tiempo de incorporación.',
+		],
+		redLake: [
+			'Ejecuté reclutamiento de ciclo completo: redacté publicaciones, evalué candidatos, dirigí la orientación de nuevos empleados, verifiqué formularios I-9 y verificaciones de antecedentes, y mantuve los registros de HRIS.',
+			'Gestioné más de 300 entregas de paquetes semanales en tres ubicaciones con un registro de puntualidad del 100%, integrando valores culturales ojibwe conformes con los estándares de la Red Lake Nation.',
+		],
+	},
+};
+
 export type TranslationKey = keyof (typeof ui)[typeof defaultLang];
 
 export function isLocale(value: string | undefined): value is Locale {
